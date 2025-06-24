@@ -37,7 +37,12 @@ function getQuestion(){
 
 function answer(selection){
     let question = questions[currentQuestion];
+    let selectedAnswer = selection.slice(-1);
+    let result = document.getElementById("rightWrong");
 
-    console.log('Your answer: ', selection);
-    
+    if (selectedAnswer == question['right_answer']) {
+        result.innerText = 'RICHTIG';
+    } else {
+        result.innerText = 'Leider falsch';
+    }
 }

@@ -44,3 +44,8 @@ p:hover{
     display: block;
     margin-top: 16px;
 }
+
+#rightWrong{
+    position: relative;
+    left: 80px;
+}
