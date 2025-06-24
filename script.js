@@ -18,7 +18,6 @@ let questions = [{
     }
 ];
 
-
 function init(){
     document.getElementById("max_questions").innerHTML = questions.length;
     getQuestion();
