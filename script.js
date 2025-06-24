@@ -18,12 +18,12 @@ let questions = [{
     }
 ];
 
+let currentQuestion = 0;
+
 function init(){
     document.getElementById("max_questions").innerHTML = questions.length;
     getQuestion();
 }
-
-let currentQuestion = 0;
 
 function getQuestion(){
     let question = questions[currentQuestion];
@@ -32,6 +32,12 @@ function getQuestion(){
     document.getElementById("answer_2").innerHTML = question["answer_2"];
     document.getElementById("answer_3").innerHTML = question["answer_3"];
     document.getElementById("answer_4").innerHTML = question["answer_4"];
-    document.getElementById("right_answer").innerHTML = question["right_answer"];
     document.getElementById("currentNumber").innerHTML = question.number;
+}
+
+function answer(selection){
+    let question = questions[currentQuestion];
+
+    console.log('Your answer: ', selection);
+    
 }
