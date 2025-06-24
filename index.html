@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZapp</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="init()">
+    <header>
+        <h1>Kleines Quiz</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Frage 1</h2>
+            <h3 id="question_text">Hier kommt die eigentliche Frage hin</h3>
+            <P id="answer_1"></P>
+            <P id="answer_2"></P>
+            <P id="answer_3"></P>
+            <P id="answer_4"></P>
+            <h4 id="right_answer">Hier steht ob die Antwort richtig oder falsch war</h4>
+            <span class="questionNumber">Frage <b id="currentNumber"></b> von <b id="max_questions"></b></span>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

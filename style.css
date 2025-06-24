@@ -1,0 +1,45 @@
+
+*{
+    margin: 0px;
+    padding: 16px;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    color: cadetblue;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+section{
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 400px;
+    height: 500px;
+}
+
+p{
+    border: 1px solid black;
+    margin-top: 4px;
+    cursor: pointer;
+}
+p:hover{
+    background-color: blanchedalmond;
+}
+
+.questionNumber{
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 4px;
+}
