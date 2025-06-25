@@ -49,3 +49,11 @@ p:hover{
     position: relative;
     left: 80px;
 }
+
+.correct{
+    border: 2px solid green;
+}
+
+.wrong{
+    border: 2px solid red;
+}

@@ -39,10 +39,24 @@ function answer(selection){
     let question = questions[currentQuestion];
     let selectedAnswer = selection.slice(-1);
     let result = document.getElementById("rightWrong");
+    let idRightAnswer = questions.right_answer;
 
     if (selectedAnswer == question['right_answer']) {
         result.innerText = 'RICHTIG';
+        document.getElementById(selection).classList.add('correct');
     } else {
         result.innerText = 'Leider falsch';
+        document.getElementById(selection).classList.add('wrong');
+        document.getElementById(idRightAnswer).classList.add('correct');
     }
+}
+
+function nextQuestion(){    
+    let newQuestion = questions[currentQuestion + 1];
+    document.getElementById("question_text").innerHTML = newQuestion['question'];
+    document.getElementById("answer_1").innerHTML = newQuestion["answer_1"];
+    document.getElementById("answer_2").innerHTML = newQuestion["answer_2"];
+    document.getElementById("answer_3").innerHTML = newQuestion["answer_3"];
+    document.getElementById("answer_4").innerHTML = newQuestion["answer_4"];
+    document.getElementById("currentNumber").innerHTML = newQuestion.number;
 }
