@@ -15,6 +15,15 @@ let questions = [{
         "answer_4" : "Graz",
         "right_answer" : 3,
         "number" : 2
+    },
+    {
+        "question" : "Wo wurde ich geboren?",
+        "answer_1" : "Weiz",
+        "answer_2" : "Feldbach",
+        "answer_3" : "Hartberg",
+        "answer_4" : "Graz",
+        "right_answer" : 4,
+        "number" : 3
     }
 ];
 
@@ -27,6 +36,7 @@ function init(){
 
 function getQuestion(){
     let question = questions[currentQuestion];
+
     document.getElementById("question_text").innerHTML = question['question'];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
     document.getElementById("answer_2").innerHTML = question["answer_2"];
@@ -35,12 +45,13 @@ function getQuestion(){
     document.getElementById("currentNumber").innerHTML = question.number;
 }
 
+
 function answer(selection){
     let question = questions[currentQuestion];
     let selectedAnswer = selection.slice(-1);
     let result = document.getElementById("rightWrong");
-    let idRightAnswer = questions.right_answer;
-
+    let idRightAnswer = `answer_${question['right_answer']}`;
+    
     if (selectedAnswer == question['right_answer']) {
         result.innerText = 'RICHTIG';
         document.getElementById(selection).classList.add('correct');
@@ -49,14 +60,28 @@ function answer(selection){
         document.getElementById(selection).classList.add('wrong');
         document.getElementById(idRightAnswer).classList.add('correct');
     }
+
+    if (questions.number == questions.length) {
+        document.getElementById('next').innerText = "Ergebnis anzeigen!"
+    } else {document.getElementById("next").disabled = false;
+    }
 }
 
-function nextQuestion(){    
-    let newQuestion = questions[currentQuestion + 1];
-    document.getElementById("question_text").innerHTML = newQuestion['question'];
-    document.getElementById("answer_1").innerHTML = newQuestion["answer_1"];
-    document.getElementById("answer_2").innerHTML = newQuestion["answer_2"];
-    document.getElementById("answer_3").innerHTML = newQuestion["answer_3"];
-    document.getElementById("answer_4").innerHTML = newQuestion["answer_4"];
-    document.getElementById("currentNumber").innerHTML = newQuestion.number;
+function nextQuestion(selection){
+    currentQuestion ++;
+    document.getElementById("next").disabled = true;
+    resetAnswers();
+    getQuestion();
+    
+}
+
+function resetAnswers(){
+    document.getElementById("answer_1").classList.remove('correct');
+    document.getElementById("answer_2").classList.remove('correct');
+    document.getElementById("answer_3").classList.remove('correct');
+    document.getElementById("answer_4").classList.remove('correct');
+    document.getElementById("answer_1").classList.remove('wrong');
+    document.getElementById("answer_2").classList.remove('wrong');
+    document.getElementById("answer_3").classList.remove('wrong');
+    document.getElementById("answer_4").classList.remove('wrong');
 }

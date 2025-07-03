@@ -29,7 +29,7 @@ section{
     height: fit-content;
 }
 
-p{
+.answer{
     border: 1px solid black;
     border-radius: 4px;
     margin-top: 4px;
@@ -56,4 +56,12 @@ p:hover{
 
 .wrong{
     border: 2px solid red;
+}
+
+#next{
+    margin-top: 8px;
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    left: 120px;
 }
