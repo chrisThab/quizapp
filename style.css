@@ -22,7 +22,9 @@ main{
 }
 
 section{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     width: 400px;
@@ -34,6 +36,7 @@ section{
     border-radius: 4px;
     margin-top: 4px;
     cursor: pointer;
+    width: 100%;
 }
 p:hover{
     background-color: blanchedalmond;
@@ -43,25 +46,45 @@ p:hover{
     border: 1px solid rgba(0, 0, 0, 0.2);
     display: block;
     margin-top: 16px;
+    width: 100%;
+    border-radius: 4px;
 }
 
 #rightWrong{
     position: relative;
-    left: 80px;
+    left: 90px;
 }
 
 .correct{
-    border: 2px solid green;
+    border: 1px solid green;
+    background-color: lightgreen;
 }
 
 .wrong{
-    border: 2px solid red;
+    border: 1px solid red;
+    background-color: lightcoral;
 }
 
 #next{
     margin-top: 8px;
     text-align: center;
     width: fit-content;
+}
+
+#progress{
+    width: 100%;
+    margin-top: 8px;
+    background-color: rgba(0,0,0,0.15);
+    text-align: center;
+    border-radius: 4px;
+    padding: 0px;
+}
+
+#progressBar{
+    background-color: rgba(63, 225, 230, 0.414);
+    border-radius: 4px;
+    padding: 0px;
     position: relative;
-    left: 120px;
+    height: 18px;
+    top: -18px;
 }

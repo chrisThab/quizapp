@@ -24,18 +24,32 @@ let questions = [{
         "answer_4" : "Graz",
         "right_answer" : 4,
         "number" : 3
+    },
+    {
+        "question" : "Was ist meine liebstes Hobby?",
+        "answer_1" : "Bouldern",
+        "answer_2" : "Tischtennis",
+        "answer_3" : "Volleyball",
+        "answer_4" : "Laufen",
+        "right_answer" : 1,
+        "number" : 4
     }
 ];
 
 let currentQuestion = 0;
+let correctAnswers = 0;
 
 function init(){
     document.getElementById("max_questions").innerHTML = questions.length;
     getQuestion();
-}
+};
 
 function getQuestion(){
     let question = questions[currentQuestion];
+    
+    let percent = Math.round(questions[currentQuestion].number / questions.length * 100);
+    document.getElementById('progress').innerHTML = `${percent} %`;
+    document.getElementById('progressBar').style = `width:${percent}%`;
 
     document.getElementById("question_text").innerHTML = question['question'];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
@@ -43,8 +57,7 @@ function getQuestion(){
     document.getElementById("answer_3").innerHTML = question["answer_3"];
     document.getElementById("answer_4").innerHTML = question["answer_4"];
     document.getElementById("currentNumber").innerHTML = question.number;
-}
-
+};
 
 function answer(selection){
     let question = questions[currentQuestion];
@@ -55,25 +68,25 @@ function answer(selection){
     if (selectedAnswer == question['right_answer']) {
         result.innerText = 'RICHTIG';
         document.getElementById(selection).classList.add('correct');
+        correctAnswers ++;
     } else {
         result.innerText = 'Leider falsch';
         document.getElementById(selection).classList.add('wrong');
         document.getElementById(idRightAnswer).classList.add('correct');
-    }
+    };
+    document.getElementById("next").disabled = false;
 
-    if (questions.number == questions.length) {
-        document.getElementById('next').innerText = "Ergebnis anzeigen!"
-    } else {document.getElementById("next").disabled = false;
-    }
-}
+};
 
-function nextQuestion(selection){
+function nextQuestion(){
     currentQuestion ++;
     document.getElementById("next").disabled = true;
+    if (currentQuestion == questions.length) {
+        showResult();
+    }
     resetAnswers();
     getQuestion();
-    
-}
+};
 
 function resetAnswers(){
     document.getElementById("answer_1").classList.remove('correct');
@@ -84,4 +97,8 @@ function resetAnswers(){
     document.getElementById("answer_2").classList.remove('wrong');
     document.getElementById("answer_3").classList.remove('wrong');
     document.getElementById("answer_4").classList.remove('wrong');
-}
+};
+
+function showResult(){
+    document.getElementById('next').innerText = `Du hast ${correctAnswers} von ${questions.length} Fragen richtig beantwortet!`;
+};
